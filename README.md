@@ -5,7 +5,7 @@ which you can find here: https://github.com/keycloak/keycloak/tree/master/integr
 
 For more information, see the documentation: https://www.keycloak.org/docs-api/8.0/rest-api/index.html
 
-##Usage
+## Usage
 
 For a Maven project, add following to pom.xml:
 
@@ -28,7 +28,7 @@ For a Maven project, add following to pom.xml:
 Authentication is required to use Github Package Registry, see more details:
 [Configuring Apache Maven for use with GitHub Packages](https://docs.github.com/en/free-pro-team@latest/packages/guides/configuring-apache-maven-for-use-with-github-packages)
 
-##Notice 
+## Notice 
 
 Not every method is fully implemented, so an UnsupportedOperationException is thrown. If you need a specific method, you can make an implementation.
 
