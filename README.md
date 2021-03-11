@@ -1,4 +1,6 @@
 # keycloak-admin-client-jersey
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdaniel-schel%2Fkeycloak-admin-client-jersey.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdaniel-schel%2Fkeycloak-admin-client-jersey?ref=badge_shield)
+
 
 Jersey based client implementation of the keycloak administration API. It based on a fork of the keycloak-amdin client implemented with resteasy, 
 which you can find here: https://github.com/keycloak/keycloak/tree/master/integration/admin-client.
@@ -35,3 +37,6 @@ Not every method is fully implemented, so an UnsupportedOperationException is th
 ## License
 
 * [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdaniel-schel%2Fkeycloak-admin-client-jersey.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdaniel-schel%2Fkeycloak-admin-client-jersey?ref=badge_large)
