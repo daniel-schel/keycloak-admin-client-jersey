@@ -27,9 +27,11 @@ import org.keycloak.representations.idm.ClientRepresentation;
 import org.keycloak.representations.idm.ClientScopeRepresentation;
 import org.keycloak.representations.idm.EventRepresentation;
 import org.keycloak.representations.idm.GroupRepresentation;
+import org.keycloak.representations.idm.LDAPCapabilityRepresentation;
 import org.keycloak.representations.idm.PartialImportRepresentation;
 import org.keycloak.representations.idm.RealmEventsConfigRepresentation;
 import org.keycloak.representations.idm.RealmRepresentation;
+import org.keycloak.representations.idm.TestLdapConnectionRepresentation;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -340,19 +342,47 @@ public class RealmResource extends AbstractResource {
 
     @Path("testLDAPConnection")
     @POST
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     //@NoCache
+    @Deprecated
     public Response testLDAPConnection(@FormParam("action") String action, @FormParam("connectionUrl") String connectionUrl,
                                        @FormParam("bindDn") String bindDn, @FormParam("bindCredential") String bindCredential,
                                        @FormParam("useTruststoreSpi") String useTruststoreSpi, @FormParam("connectionTimeout") String connectionTimeout) {
         throw new UnsupportedOperationException();
     }
 
-    @Path("testSMTPConnection/{config}")
+    @Path("testLDAPConnection")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    //@NoCache
+    public Response testLDAPConnection(TestLdapConnectionRepresentation config) {
+        throw new UnsupportedOperationException();
+    }
+
+    @POST
+    @Path("ldap-server-capabilities")
+    //@NoCache
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    public List<LDAPCapabilityRepresentation> ldapServerCapabilities(TestLdapConnectionRepresentation config) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("testSMTPConnection")
+    @POST
+    //@NoCache
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Deprecated
+    public Response testSMTPConnection(@FormParam("config") String config) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("testSMTPConnection")
     @POST
     //@NoCache
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response testSMTPConnection(final @PathParam("config") String config) throws Exception {
-        return getTarget().path(path + "/testSMTPConnection/" + config).post(Response.class);
+    public Response testSMTPConnection(Map<String, String> config) {
+        throw new UnsupportedOperationException();
     }
 
     @Path("clear-realm-cache")
@@ -406,6 +436,11 @@ public class RealmResource extends AbstractResource {
     @Path("keys")
     public KeyResource keys() {
         return new KeyResource(getTarget(), path + "/keys");
+    }
+
+    @Path("localization")
+    public RealmLocalizationResource localization() {
+        return new RealmLocalizationResource(getTarget(),path+"/localization");
     }
 
 }

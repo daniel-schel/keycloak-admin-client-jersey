@@ -106,7 +106,7 @@ public class GroupsResource extends AbstractResource {
      * @param search max number of occurrences
      * @param first index of the first element
      * @param max max number of occurrences
-     * @param fullRepresentation if true, return groups with their attributes
+     * @param briefRepresentation if false, return groups with their attributes
      * @return A list containing the slice of all groups.
      */
     @GET
@@ -116,7 +116,7 @@ public class GroupsResource extends AbstractResource {
     public List<GroupRepresentation> groups(@QueryParam("search") String search,
                                      @QueryParam("first") Integer first,
                                      @QueryParam("max") Integer max,
-                                     @QueryParam("full") @DefaultValue("false") boolean fullRepresentation) {
+                                     @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
         throw new UnsupportedOperationException();
     }
     /**

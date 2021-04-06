@@ -99,10 +99,10 @@ public class RoleByIdResource extends AbstractResource {
         throw new UnsupportedOperationException();
     }
 
-    @Path("{role-id}/composites/clients/{client}")
+    @Path("{role-id}/composites/clients/{clientUuid}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Set<RoleRepresentation> getClientRoleComposites(@PathParam("role-id") String id, @PathParam("client") String client) {
+    public Set<RoleRepresentation> getClientRoleComposites(@PathParam("role-id") String id, @PathParam("clientUuid") String clientUuid) {
         throw new UnsupportedOperationException();
     }
 

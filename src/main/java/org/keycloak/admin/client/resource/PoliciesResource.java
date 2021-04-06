@@ -93,6 +93,22 @@ public class PoliciesResource extends AbstractResource {
         throw new UnsupportedOperationException();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@NoCache
+    public List<PolicyRepresentation> policies(@QueryParam("policyId") String id,
+                                        @QueryParam("name") String name,
+                                        @QueryParam("type") String type,
+                                        @QueryParam("resource") String resource,
+                                        @QueryParam("scope") String scope,
+                                        @QueryParam("permission") Boolean permission,
+                                        @QueryParam("owner") String owner,
+                                        @QueryParam("fields") String fields,
+                                        @QueryParam("first") Integer firstResult,
+                                        @QueryParam("max") Integer maxResult) {
+        throw new UnsupportedOperationException();
+    }
+
     @Path("providers")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -131,11 +147,6 @@ public class PoliciesResource extends AbstractResource {
     @Path("aggregate")
     public AggregatePoliciesResource aggregate() {
         return new AggregatePoliciesResource(getTarget(),path+"/aggregate");
-    }
-
-    @Path("rules")
-    public RulePoliciesResource rule() {
-        return new RulePoliciesResource(getTarget(),path+"/rules");
     }
 
     @Path("client")

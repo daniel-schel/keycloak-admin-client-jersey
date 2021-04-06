@@ -23,11 +23,13 @@ import org.keycloak.representations.idm.RoleRepresentation;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -59,6 +61,90 @@ public class RolesResource extends AbstractResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<RoleRepresentation> list() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * @param briefRepresentation if false, return roles with their attributes
+     * @return A list containing all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Get roles by pagination params.
+     * @param search max number of occurrences
+     * @param first index of the first element
+     * @param max max number of occurrences
+     * @return A list containing the slice of all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("first") Integer firstResult,
+                                  @QueryParam("max") Integer maxResults) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Get roles by pagination params.
+     * @param first index of the first element
+     * @param max max number of occurrences
+     * @param briefRepresentation if false, return roles with their attributes
+     * @return A list containing the slice of all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("first") Integer firstResult,
+                                  @QueryParam("max") Integer maxResults,
+                                  @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Get roles by pagination params.
+     * @param search max number of occurrences
+     * @param briefRepresentation if false, return roles with their attributes
+     * @return A list containing the slice of all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("search") @DefaultValue("") String search,
+                                  @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Get roles by pagination params.
+     * @param search max number of occurrences
+     * @param first index of the first element
+     * @param max max number of occurrences
+     * @return A list containing the slice of all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("search") @DefaultValue("") String search,
+                                  @QueryParam("first") Integer firstResult,
+                                  @QueryParam("max") Integer maxResults) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Get roles by pagination params.
+     * @param search max number of occurrences
+     * @param first index of the first element
+     * @param max max number of occurrences
+     * @param briefRepresentation if false, return roles with their attributes
+     * @return A list containing the slice of all roles.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<RoleRepresentation> list(@QueryParam("search") @DefaultValue("") String search,
+                                  @QueryParam("first") Integer firstResult,
+                                  @QueryParam("max") Integer maxResults,
+                                  @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
         throw new UnsupportedOperationException();
     }
 

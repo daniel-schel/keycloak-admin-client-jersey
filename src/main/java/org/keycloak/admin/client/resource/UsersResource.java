@@ -83,6 +83,65 @@ public class UsersResource extends AbstractResource {
                                     @QueryParam("email") String email,
                                     @QueryParam("first") Integer firstResult,
                                     @QueryParam("max") Integer maxResults,
+                                           @QueryParam("enabled") Boolean enabled,
+                                           @QueryParam("briefRepresentation") Boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Search for users based on the given filters.
+     *
+     * @param username a value contained in username
+     * @param firstName a value contained in first name
+     * @param lastName a value contained in last name
+     * @param email a value contained in email
+     * @param emailVerified whether the email has been verified
+     * @param idpAlias the alias of the Identity Provider
+     * @param idpUserId the userId at the Identity Provider
+     * @param firstResult the position of the first result to retrieve
+     * @param maxResults the maximum number of results to retrieve
+     * @param enabled only return enabled or disabled users
+     * @param briefRepresentation Only return basic information (only guaranteed to return id, username, created, first
+     *        and last name, email, enabled state, email verification state, federation link, and access.
+     *        Note that it means that namely user attributes, required actions, and not before are not returned.)
+     * @return a list of {@link UserRepresentation}
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserRepresentation> search(@QueryParam("username") String username,
+                                    @QueryParam("firstName") String firstName,
+                                    @QueryParam("lastName") String lastName,
+                                    @QueryParam("email") String email,
+                                    @QueryParam("emailVerified") Boolean emailVerified,
+                                    @QueryParam("idpAlias") String idpAlias,
+                                    @QueryParam("idpUserId") String idpUserId,
+                                    @QueryParam("first") Integer firstResult,
+                                    @QueryParam("max") Integer maxResults,
+                                    @QueryParam("enabled") Boolean enabled,
+                                    @QueryParam("briefRepresentation") Boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserRepresentation> search(@QueryParam("username") String username,
+                                    @QueryParam("firstName") String firstName,
+                                    @QueryParam("lastName") String lastName,
+                                    @QueryParam("email") String email,
+                                    @QueryParam("emailVerified") Boolean emailVerified,
+                                    @QueryParam("first") Integer firstResult,
+                                    @QueryParam("max") Integer maxResults,
+                                    @QueryParam("enabled") Boolean enabled,
+                                    @QueryParam("briefRepresentation") Boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserRepresentation> search(@QueryParam("emailVerified") Boolean emailVerified,
+                                    @QueryParam("first") Integer firstResult,
+                                    @QueryParam("max") Integer maxResults,
+                                    @QueryParam("enabled") Boolean enabled,
                                     @QueryParam("briefRepresentation") Boolean briefRepresentation) {
         throw new UnsupportedOperationException();
     }
@@ -90,6 +149,12 @@ public class UsersResource extends AbstractResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserRepresentation> search(@QueryParam("username") String username) {
+        throw new UnsupportedOperationException();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<UserRepresentation> search(@QueryParam("username") String username, @QueryParam("exact") Boolean exact) {
         throw new UnsupportedOperationException();
     }
 
@@ -158,10 +223,85 @@ public class UsersResource extends AbstractResource {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * Returns the number of users that can be viewed.
+     *
+     * @return number of users
+     */
     @Path("count")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Integer count() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Returns the number of users that can be viewed and match the given search criteria.
+     * If none is specified this is equivalent to {{@link #count()}}.
+     *
+     * @param search criteria to search for
+     * @return number of users matching the search criteria
+     */
+    @Path("count")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Integer count(@QueryParam("search") String search) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Returns the number of users that can be viewed and match the given filters.
+     * If none of the filters is specified this is equivalent to {{@link #count()}}.
+     *
+     * @param last     last name field of a user
+     * @param first    first name field of a user
+     * @param email    email field of a user
+     * @param username username field of a user
+     * @return number of users matching the given filters
+     */
+    @Path("count")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Integer count(@QueryParam("lastName") String last,
+                  @QueryParam("firstName") String first,
+                  @QueryParam("email") String email,
+                  @QueryParam("username") String username) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Returns the number of users that can be viewed and match the given filters.
+     * If none of the filters is specified this is equivalent to {{@link #count()}}.
+     *
+     * @param last          last name field of a user
+     * @param first         first name field of a user
+     * @param email         email field of a user
+     * @param emailVerified emailVerified field of a user
+     * @param username      username field of a user
+     * @return number of users matching the given filters
+     */
+    @Path("count")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Integer count(@QueryParam("lastName") String last,
+                  @QueryParam("firstName") String first,
+                  @QueryParam("email") String email,
+                  @QueryParam("emailVerified") Boolean emailVerified,
+                  @QueryParam("username") String username) {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * Returns the number of users with the given status for emailVerified.
+     * If none of the filters is specified this is equivalent to {{@link #count()}}.
+     *
+     * @param emailVerified emailVerified field of a user
+     * @return number of users matching the given filters
+     */
+    @Path("count")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Integer countEmailVerified(@QueryParam("emailVerified") Boolean emailVerified) {
         throw new UnsupportedOperationException();
     }
 

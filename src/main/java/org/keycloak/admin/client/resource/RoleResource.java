@@ -116,9 +116,9 @@ public class RoleResource extends AbstractResource {
     }
 
     @GET
-    @Path("composites/clients/{appName}")
+    @Path("composites/clients/{clientUuid}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Set<RoleRepresentation> getClientRoleComposites(@PathParam("appName") String appName) {
+    public Set<RoleRepresentation> getClientRoleComposites(@PathParam("clientUuid") String clientUuid) {
         throw new UnsupportedOperationException();
     }
 

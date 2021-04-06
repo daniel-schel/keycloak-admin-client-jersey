@@ -78,6 +78,22 @@ public class ClientsResource extends AbstractResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    public List<ClientRepresentation> findAll(@QueryParam("clientId") String clientId,
+                                       @QueryParam("viewableOnly") Boolean viewableOnly,
+                                       @QueryParam("search") Boolean search,
+                                       @QueryParam("first") Integer firstResult,
+                                       @QueryParam("max") Integer maxResults) {
+        return getTarget().path(clientsPath)
+                .queryParam("clientId",clientId)
+                .queryParam("viewableOnly",viewableOnly+"")
+                .queryParam("search",search+"")
+                .queryParam("first",firstResult+"")
+                .queryParam("max",maxResults+"")
+                .accept(MediaType.APPLICATION_JSON).get(new GenericType<List<ClientRepresentation>>() {});
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<ClientRepresentation> findByClientId(@QueryParam("clientId") String clientId) {
         return getTarget().path(clientsPath).queryParam("clientId",clientId).accept(MediaType.APPLICATION_JSON).get(new GenericType<List<ClientRepresentation>>() {});
     }

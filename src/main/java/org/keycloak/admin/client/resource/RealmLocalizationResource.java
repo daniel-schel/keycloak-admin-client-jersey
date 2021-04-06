@@ -17,19 +17,19 @@
 
 package org.keycloak.admin.client.resource;
 
+import com.sun.jersey.api.client.WebResource;
+import org.keycloak.admin.client.AbstractResource;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import com.sun.jersey.api.client.WebResource;
-import org.keycloak.admin.client.AbstractResource;
-import org.keycloak.representations.idm.authorization.RulePolicyRepresentation;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The type Rule policies resource.
@@ -38,7 +38,7 @@ import org.keycloak.representations.idm.authorization.RulePolicyRepresentation;
  *
  * @author daniel-schel
  */
-public class RulePoliciesResource extends AbstractResource {
+public class RealmLocalizationResource extends AbstractResource {
 
     private String path = "";
 
@@ -47,7 +47,7 @@ public class RulePoliciesResource extends AbstractResource {
      *
      * @param target the target
      */
-    protected RulePoliciesResource(WebResource target) {
+    protected RealmLocalizationResource(WebResource target) {
         super(target);
     }
 
@@ -57,28 +57,50 @@ public class RulePoliciesResource extends AbstractResource {
      * @param target the target
      * @param path   the path
      */
-    public RulePoliciesResource(WebResource target, String path) {
+    public RealmLocalizationResource(WebResource target, String path) {
         super(target);
         this.path = path;
     }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response create(RulePolicyRepresentation representation) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Path("{id}")
-    public RulePolicyResource findById(@PathParam("id") String id) {
-        return new RulePolicyResource(getTarget(), path + "/" + id);
-    }
-
-    @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public RulePolicyRepresentation findByName(@QueryParam("name") String name) {
+    public List<String> getRealmSpecificLocales() {
         throw new UnsupportedOperationException();
     }
+
+    @Path("{locale}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Map<String, String> getRealmLocalizationTexts(final @PathParam("locale") String locale) {
+        throw new UnsupportedOperationException();
+    }
+
+
+    @Path("{locale}/{key}")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getRealmLocalizationText(final @PathParam("locale") String locale, final @PathParam("key") String key) {
+        throw new UnsupportedOperationException();
+    }
+
+
+    @Path("{locale}")
+    @DELETE
+    public void deleteRealmLocalizationTexts(@PathParam("locale") String locale) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("{locale}/{key}")
+    @DELETE
+    public void deleteRealmLocalizationText(@PathParam("locale") String locale, @PathParam("key") String key) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("{locale}/{key}")
+    @PUT
+    @Consumes(MediaType.TEXT_PLAIN)
+    public void saveRealmLocalizationText(@PathParam("locale") String locale, @PathParam("key") String key, String text) {
+        throw new UnsupportedOperationException();
+    }
+
 }

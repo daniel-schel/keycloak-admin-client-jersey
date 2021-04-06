@@ -23,10 +23,12 @@ import org.keycloak.representations.idm.RoleRepresentation;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -73,6 +75,13 @@ public class RoleScopeResource extends AbstractResource {
     public List<RoleRepresentation> listEffective() {
         throw new UnsupportedOperationException();
     }
+
+    @GET
+    @Path("composite")
+    public List<RoleRepresentation> listEffective(@QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
 
     @POST
     public void add(List<RoleRepresentation> rolesToAdd) {

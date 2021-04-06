@@ -128,6 +128,13 @@ public class AuthenticationManagementResource extends AbstractResource {
         throw new UnsupportedOperationException();
     }
 
+    @Path("/flows/{id}")
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updateFlow(@PathParam("id") String id, AuthenticationFlowRepresentation flow) {
+        throw new UnsupportedOperationException();
+    }
+
     @Path("/flows/{flowAlias}/executions/flow")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
