@@ -5,7 +5,7 @@
 Jersey based client implementation of the keycloak administration API. It based on a fork of the keycloak-amdin client implemented with resteasy, 
 which you can find here: https://github.com/keycloak/keycloak/tree/master/integration/admin-client.
 
-For more information, see the documentation: https://www.keycloak.org/docs-api/8.0/rest-api/index.html
+For more information, see the documentation: https://www.keycloak.org/docs-api/12.0/rest-api/index.html
 
 ## Usage
 
