@@ -443,4 +443,14 @@ public class RealmResource extends AbstractResource {
         return new RealmLocalizationResource(getTarget(),path+"/localization");
     }
 
+    @Path("client-policies/policies")
+    public ClientPoliciesPoliciesResource clientPoliciesPoliciesResource() {
+        return new ClientPoliciesPoliciesResource(getTarget(),path+"/client-policies/policies");
+    }
+
+    @Path("client-policies/profiles")
+    public ClientPoliciesProfilesResource clientPoliciesProfilesResource(){
+        return new ClientPoliciesProfilesResource(getTarget(),path+"/client-policies/profiles");
+    }
+
 }

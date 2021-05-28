@@ -158,4 +158,9 @@ public class PoliciesResource extends AbstractResource {
     public GroupPoliciesResource group() {
         return new GroupPoliciesResource(getTarget(),path+"/group");
     }
+
+    @Path("client-scope")
+    public ClientScopePoliciesResource clientScope() {
+        return new ClientScopePoliciesResource(getTarget(),path+"/client-scope");
+    }
 }
