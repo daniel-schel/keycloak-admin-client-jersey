@@ -38,10 +38,21 @@ public class ClientPoliciesPoliciesResource extends AbstractResource {
 
     private String path = "";
 
+    /**
+     * Instantiates a new Client policies policies resource.
+     *
+     * @param target the target
+     */
     protected ClientPoliciesPoliciesResource(WebResource target) {
         super(target);
     }
 
+    /**
+     * Instantiates a new Client policies policies resource.
+     *
+     * @param target the target
+     * @param path   the path
+     */
     public ClientPoliciesPoliciesResource(WebResource target, String path) {
         super(target);
         this.path = path;

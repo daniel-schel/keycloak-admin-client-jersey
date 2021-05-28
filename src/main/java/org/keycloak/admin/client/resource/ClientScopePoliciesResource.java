@@ -41,10 +41,21 @@ public class ClientScopePoliciesResource extends AbstractResource {
 
     private String path = "";
 
+    /**
+     * Instantiates a new Client scope policies resource.
+     *
+     * @param target the target
+     */
     protected ClientScopePoliciesResource(WebResource target) {
         super(target);
     }
 
+    /**
+     * Instantiates a new Client scope policies resource.
+     *
+     * @param target the target
+     * @param path   the path
+     */
     public ClientScopePoliciesResource(WebResource target, String path) {
         super(target);
         this.path = path;

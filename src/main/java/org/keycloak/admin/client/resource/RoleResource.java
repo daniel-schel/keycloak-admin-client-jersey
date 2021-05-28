@@ -47,13 +47,26 @@ import java.util.Set;
  */
 public class RoleResource extends AbstractResource {
 
+    private String path = "";
+
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new Role resource.
      *
      * @param target the target
      */
     protected RoleResource(WebResource target) {
         super(target);
+    }
+
+    /**
+     * Instantiates a new Role resource.
+     *
+     * @param target the target
+     * @param path   the path
+     */
+    public RoleResource(WebResource target, String path) {
+        super(target);
+        this.path = path;
     }
 
     /**

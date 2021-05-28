@@ -45,7 +45,7 @@ public class UsersResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new Users resource.
      *
      * @param target the target
      */

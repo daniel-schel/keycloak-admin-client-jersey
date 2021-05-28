@@ -43,7 +43,7 @@ public class TimePoliciesResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new Time policies resource.
      *
      * @param target the target
      */

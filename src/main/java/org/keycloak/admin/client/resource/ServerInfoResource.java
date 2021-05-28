@@ -36,6 +36,11 @@ import javax.ws.rs.core.MediaType;
 @Path("/admin/serverinfo")
 public class ServerInfoResource extends AbstractResource {
 
+    /**
+     * Instantiates a new Server info resource.
+     *
+     * @param target the target
+     */
     public ServerInfoResource(WebResource target){
         super(target);
     }

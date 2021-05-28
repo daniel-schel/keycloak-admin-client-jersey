@@ -43,7 +43,7 @@ public class UserPoliciesResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new User policies resource.
      *
      * @param target the target
      */

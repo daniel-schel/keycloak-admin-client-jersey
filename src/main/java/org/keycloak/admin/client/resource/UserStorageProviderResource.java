@@ -40,7 +40,7 @@ public class UserStorageProviderResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new User storage provider resource.
      *
      * @param target the target
      */

@@ -61,7 +61,7 @@ public class RealmResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new Realm resource.
      *
      * @param target the target
      */
@@ -72,8 +72,8 @@ public class RealmResource extends AbstractResource {
     /**
      * Instantiates a new Realm resource.
      *
-     * @param target    the target
-     * @param path the realm path
+     * @param target the target
+     * @param path   the path
      */
     public RealmResource(WebResource target, String path) {
         super(target);

@@ -43,7 +43,7 @@ public class ScopePermissionsResource extends AbstractResource {
     private String path = "";
 
     /**
-     * Instantiates a new Abstract resource.
+     * Instantiates a new Scope permissions resource.
      *
      * @param target the target
      */
