@@ -23,7 +23,7 @@ For a Maven project, add following to pom.xml:
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-admin-client-jersey</artifactId>
-            <version>8.0.2</version>
+            <version>12.0.4</version>
         </dependency>
     </dependencies>
 
