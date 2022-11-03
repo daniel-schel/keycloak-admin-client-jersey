@@ -64,8 +64,7 @@ public class GroupsResource extends AbstractResource {
      * @return A list containing all groups.
      */
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<GroupRepresentation> groups() {
         throw new UnsupportedOperationException();
     }
@@ -77,8 +76,7 @@ public class GroupsResource extends AbstractResource {
      * @return A list containing the slice of all groups.
      */
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public List<GroupRepresentation> groups(@QueryParam("first") Integer first, @QueryParam("max") Integer max) {
         throw new UnsupportedOperationException();
@@ -92,8 +90,7 @@ public class GroupsResource extends AbstractResource {
      * @return A list containing the slice of all groups.
      */
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public List<GroupRepresentation> groups(@QueryParam("search") String search,
                                      @QueryParam("first") Integer first,
@@ -119,13 +116,35 @@ public class GroupsResource extends AbstractResource {
                                      @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
         throw new UnsupportedOperationException();
     }
+
+    /**
+     * Get groups by pagination params.
+     * @param search search string for group
+     * @param exact exact match for search
+     * @param first index of the first element
+     * @param max max number of occurrences
+     * @param briefRepresentation if false, return groups with their attributes
+     * @return A list containing the slice of all groups.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<GroupRepresentation> groups(@QueryParam("search") String search,
+                                     @QueryParam("exact") Boolean exact,
+                                     @QueryParam("first") Integer first,
+                                     @QueryParam("max") Integer max,
+                                     @QueryParam("briefRepresentation") @DefaultValue("true") boolean briefRepresentation) {
+        throw new UnsupportedOperationException();
+    }
+
+
+
     /**
      * Counts all groups.
      * @return A map containing key "count" with number of groups as value.
      */
     @GET
-    //@NoCache
-    @Path("count")
+        @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Map<String, Long> count() {
@@ -138,8 +157,7 @@ public class GroupsResource extends AbstractResource {
      * @return A map containing key "count" with number of groups as value which matching with search.
      */
     @GET
-    //@NoCache
-    @Path("count")
+        @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Map<String, Long> count(@QueryParam("search") String search) {
@@ -152,8 +170,7 @@ public class GroupsResource extends AbstractResource {
      * @return A map containing key "count" with number of top level groups.
      */
     @GET
-    //@NoCache
-    @Path("count")
+        @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Map<String, Long> count(@QueryParam("top") @DefaultValue("true") boolean onlyTopGroups) {
@@ -175,6 +192,12 @@ public class GroupsResource extends AbstractResource {
     @Path("{id}")
     public GroupResource group(@PathParam("id") String id) {
         return new GroupResource(getTarget(),path + "/"+id);
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<GroupRepresentation> query(@QueryParam("q") String searchQuery) {
+        throw new UnsupportedOperationException();
     }
 
 }

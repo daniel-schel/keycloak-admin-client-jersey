@@ -61,6 +61,7 @@ public class KeycloakBuilder {
     private String grantType;
     private Client jerseyClient;
     private String authorization;
+    private String scope;
 
     public KeycloakBuilder serverUrl(String serverUrl) {
         this.serverUrl = serverUrl;
@@ -93,6 +94,10 @@ public class KeycloakBuilder {
         return this;
     }
 
+    public KeycloakBuilder scope(String scope) {
+        this.scope = scope;
+        return this;
+    }
     public KeycloakBuilder clientSecret(String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
@@ -142,7 +147,7 @@ public class KeycloakBuilder {
             throw new IllegalStateException("clientId required");
         }
 
-        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, grantType, jerseyClient, authorization);
+        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, grantType, jerseyClient, authorization, scope);
     }
 
     private KeycloakBuilder() {

@@ -77,8 +77,7 @@ public class TimePoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public TimePolicyRepresentation findByName(@QueryParam("name") String name) {
+        public TimePolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

@@ -81,22 +81,19 @@ public class PoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public PolicyRepresentation findByName(@QueryParam("name") String name) {
+        public PolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public List<PolicyRepresentation> policies() {
+        public List<PolicyRepresentation> policies() {
         throw new UnsupportedOperationException();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public List<PolicyRepresentation> policies(@QueryParam("policyId") String id,
+        public List<PolicyRepresentation> policies(@QueryParam("policyId") String id,
                                         @QueryParam("name") String name,
                                         @QueryParam("type") String type,
                                         @QueryParam("resource") String resource,
@@ -112,8 +109,7 @@ public class PoliciesResource extends AbstractResource {
     @Path("providers")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public List<PolicyProviderRepresentation> policyProviders() {
+        public List<PolicyProviderRepresentation> policyProviders() {
         throw new UnsupportedOperationException();
     }
 
@@ -163,4 +159,10 @@ public class PoliciesResource extends AbstractResource {
     public ClientScopePoliciesResource clientScope() {
         return new ClientScopePoliciesResource(getTarget(),path+"/client-scope");
     }
+
+    @Path("regex")
+    public RegexPoliciesResource regex() {
+        return new RegexPoliciesResource(getTarget(),path+"/regex");
+    }
+
 }

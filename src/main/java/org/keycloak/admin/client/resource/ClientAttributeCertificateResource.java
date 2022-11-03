@@ -61,8 +61,7 @@ public class ClientAttributeCertificateResource extends AbstractResource {
      * @return
      */
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public CertificateRepresentation getKeyInfo() {
         throw new UnsupportedOperationException();
     }
@@ -90,7 +89,7 @@ public class ClientAttributeCertificateResource extends AbstractResource {
     @Path("upload")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public CertificateRepresentation uploadJks(FormDataMultiPart output) {
+    public CertificateRepresentation uploadJks(Object output) {
         throw new UnsupportedOperationException();
     }
 
@@ -104,7 +103,7 @@ public class ClientAttributeCertificateResource extends AbstractResource {
     @Path("upload-certificate")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public CertificateRepresentation uploadJksCertificate(FormDataMultiPart output) {
+    public CertificateRepresentation uploadJksCertificate(Object output) {
         throw new UnsupportedOperationException();
     }
 
@@ -115,8 +114,7 @@ public class ClientAttributeCertificateResource extends AbstractResource {
      * @return
      */
     @POST
-    //@NoCache
-    @Path("/download")
+        @Path("/download")
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Consumes(MediaType.APPLICATION_JSON)
     public byte[] getKeystore(final KeyStoreConfig config) {
@@ -133,8 +131,7 @@ public class ClientAttributeCertificateResource extends AbstractResource {
      * @return
      */
     @POST
-    //@NoCache
-    @Path("/generate-and-download")
+        @Path("/generate-and-download")
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     @Consumes(MediaType.APPLICATION_JSON)
     public byte[] generateAndGetKeystore(final KeyStoreConfig config) {

@@ -23,10 +23,12 @@ import org.keycloak.admin.client.AbstractResource;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +73,7 @@ public class RealmLocalizationResource extends AbstractResource {
     @Path("{locale}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Map<String, String> getRealmLocalizationTexts(final @PathParam("locale") String locale) {
+    public Map<String, String> getRealmLocalizationTexts(final @PathParam("locale") String locale,  @QueryParam("useRealmDefaultLocaleFallback") Boolean useRealmDefaultLocaleFallback) {
         throw new UnsupportedOperationException();
     }
 
@@ -100,6 +102,13 @@ public class RealmLocalizationResource extends AbstractResource {
     @PUT
     @Consumes(MediaType.TEXT_PLAIN)
     public void saveRealmLocalizationText(@PathParam("locale") String locale, @PathParam("key") String key, String text) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("{locale}")
+    @POST
+    @Consumes("application/json")
+    public void createOrUpdateRealmLocalizationTexts(@PathParam("locale") String locale, Map<String, String> localizationTexts) {
         throw new UnsupportedOperationException();
     }
 

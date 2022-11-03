@@ -77,8 +77,7 @@ public class JSPoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public JSPolicyRepresentation findByName(@QueryParam("name") String name) {
+        public JSPolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

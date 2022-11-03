@@ -78,8 +78,7 @@ public class GroupPoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public GroupPolicyRepresentation findByName(@QueryParam("name") String name) {
+        public GroupPolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

@@ -29,6 +29,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Set;
@@ -91,6 +92,18 @@ public class RoleByIdResource extends AbstractResource {
     public Set<RoleRepresentation> getRoleComposites(@PathParam("role-id") String id) {
         throw new UnsupportedOperationException();
     }
+
+    @Path("{role-id}/composites")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Set<RoleRepresentation> searchRoleComposites(@PathParam("role-id") String id,
+                                                 @QueryParam("search") String search,
+                                                 @QueryParam("first") Integer first,
+                                                 @QueryParam("max") Integer max) {
+        throw new UnsupportedOperationException();
+    }
+
+
 
     @Path("{role-id}/composites/realm")
     @GET

@@ -77,8 +77,7 @@ public class RolePoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public RolePolicyRepresentation findByName(@QueryParam("name") String name) {
+        public RolePolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

@@ -126,8 +126,7 @@ public class GroupResource extends AbstractResource {
      */
     @POST
     @Path("children")
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response subGroup(GroupRepresentation rep) {
         throw new UnsupportedOperationException();
@@ -147,8 +146,7 @@ public class GroupResource extends AbstractResource {
      * @return  Returns a max size of 100 users
      */
     @GET
-    //@NoCache
-    @Path("/members")
+        @Path("/members")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserRepresentation> members() {
         throw new UnsupportedOperationException();
@@ -164,8 +162,7 @@ public class GroupResource extends AbstractResource {
      * @return
      */
     @GET
-    //@NoCache
-    @Path("/members")
+        @Path("/members")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserRepresentation> members(@QueryParam("first") Integer firstResult,
                                             @QueryParam("max") Integer maxResults) {
@@ -185,8 +182,7 @@ public class GroupResource extends AbstractResource {
      * @return
      */
     @GET
-    //@NoCache
-    @Path("/members")
+        @Path("/members")
     @Produces(MediaType.APPLICATION_JSON)
     public List<UserRepresentation> members(@QueryParam("first") Integer firstResult,
                                             @QueryParam("max") Integer maxResults,

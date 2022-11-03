@@ -64,8 +64,7 @@ public class ResourceResource extends AbstractResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-        //@NoCache
-    public ResourceRepresentation toRepresentation() {
+            public ResourceRepresentation toRepresentation() {
         throw new UnsupportedOperationException();
     }
 

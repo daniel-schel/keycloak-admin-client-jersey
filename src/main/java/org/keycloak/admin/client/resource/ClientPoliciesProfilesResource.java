@@ -19,11 +19,13 @@ package org.keycloak.admin.client.resource;
 
 import com.sun.jersey.api.client.WebResource;
 import org.keycloak.admin.client.AbstractResource;
+import org.keycloak.representations.idm.ClientProfilesRepresentation;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -60,14 +62,19 @@ public class ClientPoliciesProfilesResource extends AbstractResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getProfiles(){
-        return getTarget().path(path).accept(MediaType.APPLICATION_JSON).get(String.class);
+    public ClientProfilesRepresentation getProfiles(@QueryParam("include-global-profiles") Boolean includeGlobalProfiles){
+        return getTarget().path(path).queryParam("include-global-profiles",includeGlobalProfiles+"").accept(MediaType.APPLICATION_JSON).get(ClientProfilesRepresentation.class);
     }
 
+    /**
+     * Update client profiles in the realm. The "globalProfiles" field of clientProfiles is ignored as it is not possible to update global profiles
+     *
+     * @param clientProfiles
+     */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateProfiles(final String json){
-        return getTarget().path(path).type(MediaType.APPLICATION_JSON_TYPE).put(Response.class, json);
+    public Response updateProfiles(final ClientProfilesRepresentation clientProfiles){
+        return getTarget().path(path).type(MediaType.APPLICATION_JSON_TYPE).put(Response.class, clientProfiles);
     }
 
 }

@@ -151,8 +151,7 @@ public class ClientResource extends AbstractResource {
     }
 
     @GET
-    //@NoCache
-    @Path("installation/providers/{providerId}")
+        @Path("installation/providers/{providerId}")
     public String getInstallationProvider(@PathParam("providerId") String providerId) {
         return getTarget().path(clientPath + "installation/providers/"+providerId).get(String.class);
     }
@@ -252,8 +251,7 @@ public class ClientResource extends AbstractResource {
 
     @Path("/service-account-user")
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public UserRepresentation getServiceAccountUser() {
         throw new UnsupportedOperationException();
     }
@@ -282,4 +280,20 @@ public class ClientResource extends AbstractResource {
     public AuthorizationResource authorization() {
         return new AuthorizationResource(getTarget(),clientPath+"/authz/resource-server");
     }
+
+    @Path("client-secret/rotated")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public CredentialRepresentation getClientRotatedSecret() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Path("client-secret/rotated")
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void invalidateRotatedSecret() {
+        throw new UnsupportedOperationException();
+    }
+
 }

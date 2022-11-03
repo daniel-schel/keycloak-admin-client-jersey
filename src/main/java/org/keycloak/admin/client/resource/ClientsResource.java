@@ -98,4 +98,11 @@ public class ClientsResource extends AbstractResource {
         return getTarget().path(clientsPath).queryParam("clientId",clientId).accept(MediaType.APPLICATION_JSON).get(new GenericType<List<ClientRepresentation>>() {});
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ClientRepresentation> query(@QueryParam("q") String searchQuery) {
+        return getTarget().path(clientsPath).queryParam("q",searchQuery).accept(MediaType.APPLICATION_JSON).get(new GenericType<List<ClientRepresentation>>() {});
+    }
+
+
 }

@@ -55,8 +55,8 @@ public class Keycloak implements AutoCloseable {
     private final WebResource target;
     private final Client client;
 
-    Keycloak(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, String grantType, Client jerseyClient, String authtoken) {
-        config = new Config(serverUrl, realm, username, password, clientId, clientSecret, grantType);
+    Keycloak(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, String grantType, Client jerseyClient, String authtoken, String scope) {
+        config = new Config(serverUrl, realm, username, password, clientId, clientSecret, grantType, scope);
         client = jerseyClient != null ? jerseyClient : newJerseyClient(null, null, false);
         authToken = authtoken;
         tokenManager = authtoken == null ? new TokenManager(config, client) : null;
@@ -69,7 +69,7 @@ public class Keycloak implements AutoCloseable {
         return authToken != null ? new BearerAuthFilter(authToken) : new BearerAuthFilter(tokenManager);
     }
 
-    private static Client newJerseyClient(JacksonJsonProvider customJacksonProvider, SSLContext sslContext, boolean disableTrustManager) {
+    private static Client newJerseyClient(Object customJacksonProvider, SSLContext sslContext, boolean disableTrustManager) {
         ClientConfig cc = new DefaultClientConfig();
         cc.getClasses().add(JacksonJsonProvider.class);
         if (customJacksonProvider != null) {
@@ -89,8 +89,12 @@ public class Keycloak implements AutoCloseable {
         return Client.create(cc);
     }
 
-    public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, JacksonJsonProvider customJacksonProvider, boolean disableTrustManager, String authToken) {
-        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, PASSWORD, newJerseyClient(customJacksonProvider, sslContext, disableTrustManager), authToken);
+    public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, Object customJacksonProvider, boolean disableTrustManager, String authToken, String scope) {
+        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, PASSWORD, newJerseyClient(customJacksonProvider, sslContext, disableTrustManager), authToken, scope);
+    }
+
+    public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, Object customJacksonProvider, boolean disableTrustManager, String authToken) {
+        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, PASSWORD, newJerseyClient(customJacksonProvider, sslContext, disableTrustManager), authToken, null);
     }
 
     public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret) {
@@ -101,7 +105,7 @@ public class Keycloak implements AutoCloseable {
         return getInstance(serverUrl, realm, username, password, clientId, clientSecret, sslContext, null, false, null);
     }
 
-    public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, JacksonJsonProvider customJacksonProvider) {
+    public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, Object customJacksonProvider) {
         return getInstance(serverUrl, realm, username, password, clientId, clientSecret, sslContext, customJacksonProvider, false, null);
     }
 

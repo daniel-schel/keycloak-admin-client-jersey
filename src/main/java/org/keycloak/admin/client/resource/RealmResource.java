@@ -144,7 +144,7 @@ public class RealmResource extends AbstractResource {
 
     @Path("client-description-converter")
     @POST
-    @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_PLAIN})
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public ClientRepresentation convertClientDescription(String description) {
         return getTarget().path(path + "/client-description-converter").type(MediaType.TEXT_PLAIN).accept(MediaType.APPLICATION_JSON_TYPE).entity(description).post(ClientRepresentation.class);
@@ -186,8 +186,7 @@ public class RealmResource extends AbstractResource {
 
     @Path("events")
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<EventRepresentation> getEvents(@QueryParam("type") List<String> types, @QueryParam("client") String client,
                                                @QueryParam("user") String user, @QueryParam("dateFrom") String dateFrom, @QueryParam("dateTo") String dateTo,
                                                @QueryParam("ipAddress") String ipAddress, @QueryParam("first") Integer firstResult,
@@ -242,6 +241,32 @@ public class RealmResource extends AbstractResource {
     }
 
     @GET
+    @Path("admin-events")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<AdminEventRepresentation> getAdminEvents(@QueryParam("operationTypes") List<String> operationTypes, @QueryParam("authRealm") String authRealm,
+                                                         @QueryParam("authClient") String authClient, @QueryParam("authUser") String authUser,
+                                                         @QueryParam("authIpAddress") String authIpAddress, @QueryParam("resourcePath") String resourcePath,
+                                                         @QueryParam("resourceTypes") List<String> resourceTypes,
+                                                         @QueryParam("dateFrom") String dateFrom, @QueryParam("dateTo") String dateTo,
+                                                         @QueryParam("first") Integer firstResult, @QueryParam("max") Integer maxResults){
+        MultivaluedMap<String, String> queryParams = new MultivaluedMapImpl();
+        queryParams.add("operationTypes", String.join(",", operationTypes));
+        queryParams.add("authRealm", authRealm);
+        queryParams.add("authClient", authClient);
+        queryParams.add("authUser", authUser);
+        queryParams.add("authIpAddress", authIpAddress);
+        queryParams.add("resourcePath", resourcePath);
+        queryParams.add("resourceTypes", String.join(",", resourceTypes));
+        queryParams.add("dateFrom", dateFrom);
+        queryParams.add("dateTo", dateTo);
+        queryParams.add("first", firstResult.toString());
+        queryParams.add("max", maxResults.toString());
+        return getTarget().path(path + "/admin-events").queryParams(queryParams).accept(MediaType.APPLICATION_JSON).get(new GenericType<List<AdminEventRepresentation>>() {
+        });
+    }
+
+
+    @GET
     @Path("events/config")
     @Produces(MediaType.APPLICATION_JSON)
     public RealmEventsConfigRepresentation getRealmEventsConfig() {
@@ -257,8 +282,7 @@ public class RealmResource extends AbstractResource {
 
     @GET
     @Path("group-by-path/{path: .*}")
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public GroupRepresentation getGroupByPath(@PathParam("path") String path) {
         return getTarget().path(this.path + "/group-by-path/" + path).accept(MediaType.APPLICATION_JSON).get(GroupRepresentation.class);
     }
@@ -343,8 +367,7 @@ public class RealmResource extends AbstractResource {
     @Path("testLDAPConnection")
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    //@NoCache
-    @Deprecated
+        @Deprecated
     public Response testLDAPConnection(@FormParam("action") String action, @FormParam("connectionUrl") String connectionUrl,
                                        @FormParam("bindDn") String bindDn, @FormParam("bindCredential") String bindCredential,
                                        @FormParam("useTruststoreSpi") String useTruststoreSpi, @FormParam("connectionTimeout") String connectionTimeout) {
@@ -354,15 +377,13 @@ public class RealmResource extends AbstractResource {
     @Path("testLDAPConnection")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public Response testLDAPConnection(TestLdapConnectionRepresentation config) {
+        public Response testLDAPConnection(TestLdapConnectionRepresentation config) {
         throw new UnsupportedOperationException();
     }
 
     @POST
     @Path("ldap-server-capabilities")
-    //@NoCache
-    @Consumes(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
     @Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
     public List<LDAPCapabilityRepresentation> ldapServerCapabilities(TestLdapConnectionRepresentation config) {
         throw new UnsupportedOperationException();
@@ -370,8 +391,7 @@ public class RealmResource extends AbstractResource {
 
     @Path("testSMTPConnection")
     @POST
-    //@NoCache
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+        @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Deprecated
     public Response testSMTPConnection(@FormParam("config") String config) {
         throw new UnsupportedOperationException();
@@ -379,8 +399,7 @@ public class RealmResource extends AbstractResource {
 
     @Path("testSMTPConnection")
     @POST
-    //@NoCache
-    @Consumes(MediaType.APPLICATION_JSON)
+        @Consumes(MediaType.APPLICATION_JSON)
     public Response testSMTPConnection(Map<String, String> config) {
         throw new UnsupportedOperationException();
     }

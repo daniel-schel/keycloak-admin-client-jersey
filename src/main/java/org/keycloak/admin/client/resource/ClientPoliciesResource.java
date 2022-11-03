@@ -78,8 +78,7 @@ public class ClientPoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public ClientPolicyRepresentation findByName(@QueryParam("name") String name) {
+        public ClientPolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

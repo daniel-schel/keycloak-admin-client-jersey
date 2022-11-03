@@ -264,10 +264,9 @@ public class UserResource extends AbstractResource {
 
     /**
      * Sends an email to the user with a link within it.  If they click on the link they will be asked to perform some actions
-     * i.e. reset password, update profile, etc.
+     * i.e. {@code VERIFY_EMAIL, UPDATE_PROFILE, CONFIGURE_TOTP, UPDATE_PASSWORD, TERMS_AND_CONDITIONS}, etc.
      *
-     *
-     * @param actions
+     * @param actions a {@link List} of string representation of {@link org.keycloak.models.UserModel.RequiredAction}
      */
     @PUT
     @Path("execute-actions-email")
@@ -277,12 +276,12 @@ public class UserResource extends AbstractResource {
 
     /**
      * Sends an email to the user with a link within it.  If they click on the link they will be asked to perform some actions
-     * i.e. reset password, update profile, etc.
+     * i.e. {@code VERIFY_EMAIL, UPDATE_PROFILE, CONFIGURE_TOTP, UPDATE_PASSWORD, TERMS_AND_CONDITIONS}, etc.
      *
      * The lifespan decides the number of seconds after which the generated token in the email link expires. The default
      * value is 12 hours.
      *
-     * @param actions
+     * @param actions a {@link List} of string representation of {@link org.keycloak.models.UserModel.RequiredAction}
      * @param lifespan
      */
     @PUT
@@ -293,7 +292,7 @@ public class UserResource extends AbstractResource {
 
     /**
      * Sends an email to the user with a link within it.  If they click on the link they will be asked to perform some actions
-     * i.e. reset password, update profile, etc.
+     * i.e. {@code VERIFY_EMAIL, UPDATE_PROFILE, CONFIGURE_TOTP, UPDATE_PASSWORD, TERMS_AND_CONDITIONS}, etc.
      *
      * If redirectUri is not null, then you must specify a client id.  This will set the URI you want the flow to link
      * to after the email link is clicked and actions completed.  If both parameters are null, then no page is linked to
@@ -305,7 +304,7 @@ public class UserResource extends AbstractResource {
      * @param clientId
      * @param redirectUri
      * @param lifespan
-     * @param actions
+     * @param actions a {@link List} of string representation of {@link org.keycloak.models.UserModel.RequiredAction}
      */
     @PUT
     @Path("execute-actions-email")
@@ -318,7 +317,7 @@ public class UserResource extends AbstractResource {
 
     /**
      * Sends an email to the user with a link within it.  If they click on the link they will be asked to perform some actions
-     * i.e. reset password, update profile, etc.
+     * i.e. {@code VERIFY_EMAIL, UPDATE_PROFILE, CONFIGURE_TOTP, UPDATE_PASSWORD, TERMS_AND_CONDITIONS}, etc.
      *
      * If redirectUri is not null, then you must specify a client id.  This will set the URI you want the flow to link
      * to after the email link is clicked and actions completed.  If both parameters are null, then no page is linked to
@@ -326,7 +325,7 @@ public class UserResource extends AbstractResource {
      *
      * @param clientId
      * @param redirectUri
-     * @param actions
+     * @param actions a {@link List} of string representation of {@link org.keycloak.models.UserModel.RequiredAction}
      */
     @PUT
     @Path("execute-actions-email")

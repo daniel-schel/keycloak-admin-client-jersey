@@ -77,8 +77,7 @@ public class ResourcePermissionsResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public ResourcePermissionRepresentation findByName(@QueryParam("name") String name) {
+        public ResourcePermissionRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

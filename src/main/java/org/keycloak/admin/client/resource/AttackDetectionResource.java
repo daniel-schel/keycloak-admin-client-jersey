@@ -55,8 +55,7 @@ public class AttackDetectionResource extends AbstractResource {
 
     @GET
     @Path("brute-force/users/{userId}")
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public Map<String, Object> bruteForceUserStatus(@PathParam("userId") String userId) {
         throw new UnsupportedOperationException();
     }

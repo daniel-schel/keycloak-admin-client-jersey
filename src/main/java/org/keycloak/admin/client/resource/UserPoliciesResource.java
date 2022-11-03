@@ -77,8 +77,7 @@ public class UserPoliciesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public UserPolicyRepresentation findByName(@QueryParam("name") String name) {
+        public UserPolicyRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

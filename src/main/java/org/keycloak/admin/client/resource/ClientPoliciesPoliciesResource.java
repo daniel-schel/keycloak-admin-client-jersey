@@ -19,6 +19,7 @@ package org.keycloak.admin.client.resource;
 
 import com.sun.jersey.api.client.WebResource;
 import org.keycloak.admin.client.AbstractResource;
+import org.keycloak.representations.idm.ClientPoliciesRepresentation;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -60,14 +61,14 @@ public class ClientPoliciesPoliciesResource extends AbstractResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getPolicies() {
-        return getTarget().path(path).accept(MediaType.APPLICATION_JSON).get(String.class);
+    public ClientPoliciesRepresentation getPolicies() {
+        return getTarget().path(path).accept(MediaType.APPLICATION_JSON).get(ClientPoliciesRepresentation.class);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updatePolicies(final String json) {
-        return getTarget().path(path).type(MediaType.APPLICATION_JSON_TYPE).put(Response.class, json);
+    public Response updatePolicies(final ClientPoliciesRepresentation clientPolicies) {
+        return getTarget().path(path).type(MediaType.APPLICATION_JSON_TYPE).put(Response.class, clientPolicies);
     }
 
 }

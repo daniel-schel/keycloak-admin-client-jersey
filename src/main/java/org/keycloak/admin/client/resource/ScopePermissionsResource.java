@@ -77,8 +77,7 @@ public class ScopePermissionsResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public ScopePermissionRepresentation findByName(@QueryParam("name") String name) {
+        public ScopePermissionRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

@@ -76,8 +76,7 @@ public class ResourcesResource extends AbstractResource {
     }
 
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<ResourceRepresentation> find(@QueryParam("name") String name,
                   @QueryParam("uri") String uri,
                   @QueryParam("owner") String owner,
@@ -89,22 +88,19 @@ public class ResourcesResource extends AbstractResource {
     }
 
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<ResourceRepresentation> findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<ResourceRepresentation> findByName(@QueryParam("name") String name, @QueryParam("owner") String owner) {
         throw new UnsupportedOperationException();
     }
 
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<ResourceRepresentation> resources() {
         throw new UnsupportedOperationException();
     }

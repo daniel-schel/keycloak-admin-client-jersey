@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Red Hat, Inc. and/or its affiliates
+ * Copyright 2021 Red Hat, Inc. and/or its affiliates
  * and other contributors as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,43 +19,39 @@ package org.keycloak.admin.client.resource;
 
 import com.sun.jersey.api.client.WebResource;
 import org.keycloak.admin.client.AbstractResource;
-import org.keycloak.representations.idm.ComponentTypeRepresentation;
+import org.keycloak.representations.idm.authorization.RegexPolicyRepresentation;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 /**
- * The type Client registration policy resource.
+ * The type Regex policies resource.
  *
- * Based on a fork of keycloak-amdin-client originally created by mposolda@redhat.com.
+ * Based on a fork of keycloak-amdin-client originally created by yoshiyuki.tabata.jy@hitachi.com.
  *
  * @author daniel-schel
  */
-public class ClientRegistrationPolicyResource extends AbstractResource {
+public class RegexPoliciesResource extends AbstractResource {
 
     private String path = "";
 
-    /**
-     * Instantiates a new Abstract resource.
-     *
-     * @param target the target
-     */
-    protected ClientRegistrationPolicyResource(WebResource target) {
+    protected RegexPoliciesResource(WebResource target) {
         super(target);
     }
 
-    public ClientRegistrationPolicyResource(WebResource target, String path) {
+    public RegexPoliciesResource(WebResource target, String path) {
         super(target);
         this.path = path;
     }
 
-    @Path("providers")
-    @GET
-        @Produces(MediaType.APPLICATION_JSON)
-    public List<ComponentTypeRepresentation> getProviders() {
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response create(RegexPolicyRepresentation representation) {
         throw new UnsupportedOperationException();
     }
+
 }

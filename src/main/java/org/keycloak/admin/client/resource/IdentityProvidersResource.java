@@ -88,7 +88,7 @@ public class IdentityProvidersResource extends AbstractResource {
     @Path("import-config")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public Map<String, String> importFrom(FormDataMultiPart data) {
+    public Map<String, String> importFrom(Object data) {
         throw new UnsupportedOperationException();
     }
 

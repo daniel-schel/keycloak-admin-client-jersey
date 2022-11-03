@@ -55,4 +55,11 @@ public class TokenService extends AbstractResource {
     public AccessTokenResponse refreshToken(@PathParam("realm") String realm, MultivaluedMap<String, String> map) {
         return getTarget().path("/realms/"+realm+"/protocol/openid-connect/token").type(MediaType.APPLICATION_FORM_URLENCODED).accept(MediaType.APPLICATION_JSON).entity(map,MediaType.APPLICATION_FORM_URLENCODED).post(AccessTokenResponse.class);
     }
+
+    @POST
+    @Path("/realms/{realm}/protocol/openid-connect/logout")
+    public void logout(@PathParam("realm") String realm, MultivaluedMap<String, String> map) {
+        getTarget().path("/realms/"+realm+"/protocol/openid-connect/logout").type(MediaType.APPLICATION_FORM_URLENCODED).entity(map,MediaType.APPLICATION_FORM_URLENCODED).post();
+    }
+
 }

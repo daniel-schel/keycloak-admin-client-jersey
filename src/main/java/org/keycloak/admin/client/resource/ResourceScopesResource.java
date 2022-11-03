@@ -76,8 +76,7 @@ public class ResourceScopesResource extends AbstractResource {
     }
 
     @GET
-    //@NoCache
-    @Produces(MediaType.APPLICATION_JSON)
+        @Produces(MediaType.APPLICATION_JSON)
     public List<ScopeRepresentation> scopes() {
         throw new UnsupportedOperationException();
     }
@@ -85,8 +84,7 @@ public class ResourceScopesResource extends AbstractResource {
     @Path("/search")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@NoCache
-    public ScopeRepresentation findByName(@QueryParam("name") String name) {
+        public ScopeRepresentation findByName(@QueryParam("name") String name) {
         throw new UnsupportedOperationException();
     }
 }

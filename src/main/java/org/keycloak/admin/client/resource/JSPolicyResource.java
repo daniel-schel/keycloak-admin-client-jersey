@@ -65,8 +65,7 @@ public class JSPolicyResource extends AbstractResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-        //@NoCache
-    public JSPolicyRepresentation toRepresentation() {
+            public JSPolicyRepresentation toRepresentation() {
         throw new UnsupportedOperationException();
     }
 
@@ -84,24 +83,21 @@ public class JSPolicyResource extends AbstractResource {
     @Path("/associatedPolicies")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-        //@NoCache
-    public List<PolicyRepresentation> associatedPolicies() {
+            public List<PolicyRepresentation> associatedPolicies() {
         throw new UnsupportedOperationException();
     }
 
     @Path("/dependentPolicies")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-        //@NoCache
-    public List<PolicyRepresentation> dependentPolicies() {
+            public List<PolicyRepresentation> dependentPolicies() {
         throw new UnsupportedOperationException();
     }
 
     @Path("/resources")
     @GET
     @Produces("application/json")
-        //@NoCache
-    public List<ResourceRepresentation> resources() {
+            public List<ResourceRepresentation> resources() {
         throw new UnsupportedOperationException();
     }
 

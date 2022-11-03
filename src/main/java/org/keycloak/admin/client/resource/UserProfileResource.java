@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Red Hat, Inc. and/or its affiliates
+ * Copyright 2021 Red Hat, Inc. and/or its affiliates
  * and other contributors as indicated by the @author tags.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,70 +19,46 @@ package org.keycloak.admin.client.resource;
 
 import com.sun.jersey.api.client.WebResource;
 import org.keycloak.admin.client.AbstractResource;
-import org.keycloak.representations.idm.authorization.PolicyRepresentation;
-import org.keycloak.representations.idm.authorization.ScopeRepresentation;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 /**
- * The type Resource scope resource.
+ * The type User profile resource.
  *
- * Based on a fork of keycloak-amdin-client originally created by psilva@redhat.com.
+ * Based on a fork of keycloak-amdin-client originally created by velias@redhat.com.
  *
  * @author daniel-schel
  */
-public class ResourceScopeResource extends AbstractResource {
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public class UserProfileResource extends AbstractResource {
 
     private String path = "";
 
-    /**
-     * Instantiates a new Abstract resource.
-     *
-     * @param target the target
-     */
-    protected ResourceScopeResource(WebResource target) {
+    protected UserProfileResource(WebResource target) {
         super(target);
     }
 
-    /**
-     * Instantiates a new Resource scope resource.
-     *
-     * @param target the target
-     * @param path   the path
-     */
-    public ResourceScopeResource(WebResource target, String path) {
+    public UserProfileResource(WebResource target, String path) {
         super(target);
         this.path = path;
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-            public ScopeRepresentation toRepresentation() {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String getConfiguration() {
         throw new UnsupportedOperationException();
     }
 
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void update(ScopeRepresentation scope) {
-        throw new UnsupportedOperationException();
-    }
-
-    @DELETE
-    public void remove() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Path("/permissions")
-    @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<PolicyRepresentation> permissions() {
+    public Response update(String text) {
         throw new UnsupportedOperationException();
     }
+
 }
