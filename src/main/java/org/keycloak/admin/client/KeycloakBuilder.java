@@ -35,7 +35,7 @@ import static org.keycloak.OAuth2Constants.PASSWORD;
  *     .password("pass")
  *     .clientId("client")
  *     .clientSecret("secret")
- *     .resteasyClient(new ResteasyClientBuilder().connectionPoolSize(20).build())
+ *     .jerseyClient(Client.create(new DefaultClientConfig(JacksonJsonProvider.class)))
  *     .build();
  * </pre>
  * <p>Example usage with grant_type=client_credentials</p>

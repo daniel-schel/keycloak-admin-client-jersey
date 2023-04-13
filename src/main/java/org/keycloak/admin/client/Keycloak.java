@@ -54,6 +54,7 @@ public class Keycloak implements AutoCloseable {
     private final String authToken;
     private final WebResource target;
     private final Client client;
+    private boolean closed = false;
 
     Keycloak(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, String grantType, Client jerseyClient, String authtoken, String scope) {
         config = new Config(serverUrl, realm, username, password, clientId, clientSecret, grantType, scope);
@@ -76,6 +77,8 @@ public class Keycloak implements AutoCloseable {
             cc.getSingletons().add(customJacksonProvider);
         }
         cc.getProperties().put(ClientConfig.PROPERTY_THREADPOOL_SIZE,"10");
+        cc.getFeatures().put("com.sun.jersey.api.json.POJOMappingFeature", true);
+
         if(sslContext != null) {
             HostnameVerifier hostnameVerifier;
             if (disableTrustManager) {
@@ -94,7 +97,7 @@ public class Keycloak implements AutoCloseable {
     }
 
     public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret, SSLContext sslContext, Object customJacksonProvider, boolean disableTrustManager, String authToken) {
-        return new Keycloak(serverUrl, realm, username, password, clientId, clientSecret, PASSWORD, newJerseyClient(customJacksonProvider, sslContext, disableTrustManager), authToken, null);
+        return getInstance(serverUrl, realm, username, password, clientId, clientSecret, sslContext, customJacksonProvider, disableTrustManager, authToken, null);
     }
 
     public static Keycloak getInstance(String serverUrl, String realm, String username, String password, String clientId, String clientSecret) {
@@ -165,6 +168,7 @@ public class Keycloak implements AutoCloseable {
      */
     @Override
     public void close() {
+        closed = true;
         client.destroy();
     }
 
@@ -172,6 +176,6 @@ public class Keycloak implements AutoCloseable {
      * @return true if the underlying client is closed.
      */
     public boolean isClosed() {
-        return client.getExecutorService().isShutdown();
+        return closed;
     }
 }
